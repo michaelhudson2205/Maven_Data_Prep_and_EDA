@@ -70,3 +70,12 @@ run_times.info()
 run_times.Location = run_times.Location.str.lower().str.replace('the ',
                                                                 '').str.strip('“”')
 run_times
+
+df_grades.head()
+df_grades[df_grades.duplicated(keep=False)]
+df_grades.drop_duplicates(inplace=True)
+df_grades[df_grades.duplicated()]
+
+df_grades.iloc[40:45, :]
+df_grades.reset_index(drop=True, inplace=True)
+df_grades.iloc[40:45, :]
