@@ -74,7 +74,7 @@ groceries
 
 # reorder columns
 groceries_with_new_columns = groceries[['Product_ID', 'Product_ID_Num', 'Category', 'Subcategory', 'Item', 'Organic', 'Price_Dollars',
-                                        'Inventory', 'Percent Inventory', 'Low Inventory', 'Last_Updated', 'Last_Updated_Time', 'Next_Scheduled_Shipment', 'Shipment_Date_DOW']].head()
+                                        'Inventory', 'Percent Inventory', 'Low Inventory', 'Last_Updated', 'Last_Updated_Time', 'Next_Scheduled_Shipment', 'Shipment_Date_DOW']]
 groceries_with_new_columns.head()
 
 groceries_with_new_columns.to_pickle('data/groceries_with_new_columns.pkl')
