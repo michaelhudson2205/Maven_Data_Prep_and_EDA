@@ -54,3 +54,19 @@ groceries.groupby('Category')[['Item', 'Price_Dollars']].max()
  .sort_values('Price_Dollars', ascending=False)
  .groupby('Category')
  .head(1))
+
+# video 119 DEMO Data Visualization with Pandas
+groceries.groupby(['Subcategory'])[
+    'Price_Dollars'].mean().sort_values().plot.barh()
+
+happiness = pd.read_csv('data/happiness_survey_data.csv')
+happiness.head()
+
+happiness[happiness['country_name'] == 'Australia'].iloc[:,
+                                                         1:3].plot.line(x='year', y='happiness_score')
+
+(happiness[happiness['country_name']
+           .isin(['Canada', 'Mexico', 'United States'])]
+ .iloc[:, :3]
+ .pivot(index='year', columns='country_name', values='happiness_score')
+ .plot.line())

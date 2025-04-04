@@ -1,5 +1,5 @@
 """blah, blah, blah"""
-import numpy as np
+
 import pandas as pd
 
 data = {
@@ -17,3 +17,6 @@ tea.groupby('type')['temp'].agg(
 (tea.groupby('type')['temp']
  .agg(['min', 'max', 'count', 'nunique'])
  .reset_index())
+
+tea_temps = tea.groupby('type')['temp'].mean().reset_index()
+tea_temps.plot.barh()
