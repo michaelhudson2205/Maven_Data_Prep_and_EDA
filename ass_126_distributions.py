@@ -12,3 +12,8 @@ songs[songs['duration_ms'] > 300000]
 
 sns.histplot(songs['tempo'], bins=10)
 songs['tempo'].round(-1).value_counts().sort_index()
+
+# 133 Correlations
+songs.corr(numeric_only=True)
+
+songs.sort_values(by='valence')
