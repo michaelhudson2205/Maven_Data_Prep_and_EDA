@@ -71,3 +71,28 @@ categories.head()
 # add categories to the model dataframe
 model_df = model_df.merge(categories, how='left', on='customer')
 model_df.head()
+model_df.shape
+
+# view the dataframe with april/may behaviour
+df_april_may.head()
+df_april_may.shape
+
+# 163 DEMO Reparing DateTime Columns
+# goal: add on a new column based on date (number of days since last purchase)
+
+# find the last purchase date
+last_purchase = df_april_may.groupby('customer')['purchase_date'].max()
+last_purchase.head()
+
+# note down today's date
+today = pd.Series(pd.to_datetime('2023-06-01'), index=last_purchase.index)
+today.head()
+
+# find the number of days since the last purchase
+days_between = (today - last_purchase).dt.days.rename('days_between')
+days_between.head()
+
+# add the column to the model_df dataframe
+model_df = model_df.merge(days_between.reset_index(),
+                          how='left', on='customer')
+model_df.head()
